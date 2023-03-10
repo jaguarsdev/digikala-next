@@ -7,7 +7,7 @@ import star from '../layout/assets/icons/star.png'
 function Product({ data }) {
     const dispatch = useDispatch()
 
-    console.log(data)
+    // console.log(data)
     return (
         <div className='container grid grid-cols-1 md:grid-cols-4 lg:grid-cols-5'>
             {data?.products?.map(item => {
@@ -31,7 +31,9 @@ function Product({ data }) {
                                     <Image src={star} className='m-2' alt='' />
                                 </div>
 
-                                <div className='font-bold'>{item.price}</div>
+                                <div className='font-bold'>
+                                    {parseInt(item.price).toLocaleString()}
+                                </div>
                                 <button
                                     className=' w-7 h-7 rounded-full font-bold
                        text-green-700 hover:bg-green-500 hover:text-white text-center text-lg '

@@ -10,10 +10,13 @@ export const GetCart = createAsyncThunk('cart/GetProduct', async () => {
 export const AddToCart = createAsyncThunk('cart/AddToCart', async props => {
     return props
 })
-export const RemoveCart = createAsyncThunk('cart/GetProduct', async () => {
-    const res = await axios.get('http://localhost:3000/api/product')
-    return res.data
-})
+export const RemoveCart = createAsyncThunk(
+    'cart/RemoveCart',
+    async (props, { dispatch, getState }) => {
+        const { carts } = getState().cart
+        return carts.filter(item => item !== props)
+    },
+)
 
 export const cart = createSlice({
     name: 'cart',
@@ -22,11 +25,11 @@ export const cart = createSlice({
     },
     reducers: {},
     extraReducers: builder => {
-        // builder.addCase(GetCart.fulfilled, (state, action) => {
-        //     state.cart = action.payload
-        // })
         builder.addCase(AddToCart.fulfilled, (state, action) => {
             state.carts.push(action.payload)
+        })
+        builder.addCase(RemoveCart.fulfilled, (state, action) => {
+            state.carts = action.payload
         })
     },
 })
