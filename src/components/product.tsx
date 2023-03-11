@@ -7,7 +7,7 @@ import star from '../layout/assets/icons/star.png'
 function Product({ data }) {
     const dispatch = useDispatch()
     const { searchvalue } = useSelector((state: any) => state.search)
-    console.log(searchvalue)
+    // console.log(searchvalue)
 
     return (
         <div className='container grid grid-cols-1 md:grid-cols-4 lg:grid-cols-5'>

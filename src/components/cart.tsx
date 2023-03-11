@@ -22,7 +22,7 @@ function Cart() {
         shadow-slate-600 w-[25rem] h-[28rem] top-[2rem] left-0 md:left-[1.7rem] md:left-[1rem] overflow-hidden'
         >
             <div className='flex justify-center font-bold w-full items-center mb-4 px-3'>
-                <p className='text-center'>2 کالا در سبد خرید شما موجود است</p>
+                <p className='text-center'>{selectedProduct?.length} کالا در سبد خرید شما موجود است</p>
                 {/* <p className='text-cyan-500 text-[18px] cursor-pointer yekan'>
                     مشاهده سبد خرید
                 </p> */}

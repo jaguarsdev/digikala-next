@@ -9,6 +9,7 @@ import MenuLi from '@/components/menuLi'
 import baner from '../../public/images/topheader.3192815f27f74b47f0d9.jpg'
 import logo from '../layout/assets/images/logo.svg'
 import Cart from './cart'
+import SearchBox from './searchBox'
 
 const Header = () => {
     const dispatch = useDispatch()
@@ -23,8 +24,8 @@ const Header = () => {
                             <Image src={logo} alt='' className='w-full' />
                         </a>
                     </Link>
-                    <div className='col-span-10'>
-                        <div className='relative'>
+                    <div className='col-span-10 grid'>
+                        <div className='group relative'>
                             <a className='absolute top-2 right-0'>
                                 <svg
                                     xmlns='http://www.w3.org/2000/svg'
@@ -44,12 +45,13 @@ const Header = () => {
                             <input
                                 type='text'
                                 // value={value}
-                                className='bg-gray-200 w-2/4 p-1 pr-7 h-10 rounded-md'
+                                className='group bg-gray-200 w-2/4 p-1 pr-7 h-10 rounded-md'
                                 placeholder='جستجو'
                                 onChange={() =>
                                     dispatch(SetSearchItem(event?.target.value))
                                 }
                             />
+                            <SearchBox />
                         </div>
                     </div>
                     <div className='col-span-1 grid grid-cols-2 justify-end'>
@@ -163,7 +165,7 @@ const Header = () => {
                 </div>
                 <div className='container grid grid-cols-4 p-2'>
                     <div className='col-span-3'>
-                        <div className='relative'>
+                        <div className='group relative'>
                             <a className='absolute top-2 right-0'>
                                 <svg
                                     xmlns='http://www.w3.org/2000/svg'
@@ -188,6 +190,7 @@ const Header = () => {
                                     dispatch(SetSearchItem(event?.target.value))
                                 }
                             />
+                            <SearchBox />
                         </div>
                     </div>
                     <div className='col-span-1 flex justify-center items-center gap-3'>
