@@ -14,7 +14,7 @@ function Cart() {
     const sum = () => {
         return selectedProduct?.map(item => parseInt(item.price))
     }
-    console.log(sum()?.reduce((partialSum, a) => partialSum + a, 0))
+    // console.log(sum()?.reduce((partialSum, a) => partialSum + a, 0))
 
     return (
         <div

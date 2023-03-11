@@ -1,6 +1,9 @@
 import Image from 'next/image'
 import Link from 'next/link'
 
+import { useDispatch, useSelector } from 'react-redux'
+import { SetSearchItem } from '../redux/searchStore'
+
 import MenuLi from '@/components/menuLi'
 
 import baner from '../../public/images/topheader.3192815f27f74b47f0d9.jpg'
@@ -8,6 +11,8 @@ import logo from '../layout/assets/images/logo.svg'
 import Cart from './cart'
 
 const Header = () => {
+    const dispatch = useDispatch()
+
     return (
         <>
             <header className='hidden md:grid grid grid-cols-1 border-b border-gray-400'>
@@ -38,8 +43,12 @@ const Header = () => {
                             </a>
                             <input
                                 type='text'
+                                // value={value}
                                 className='bg-gray-200 w-2/4 p-1 pr-7 h-10 rounded-md'
                                 placeholder='جستجو'
+                                onChange={() =>
+                                    dispatch(SetSearchItem(event?.target.value))
+                                }
                             />
                         </div>
                     </div>
@@ -175,6 +184,9 @@ const Header = () => {
                                 type='text'
                                 className='bg-gray-200 w-full p-1 pr-7 h-10 rounded-md'
                                 placeholder='جستجو'
+                                onChange={() =>
+                                    dispatch(SetSearchItem(event?.target.value))
+                                }
                             />
                         </div>
                     </div>
